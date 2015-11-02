@@ -1,6 +1,21 @@
 <resources>
     <string name="app_name">GoalAchiever</string>
 
-    <string name="dummy_button">Dummy Button</string>
-    <string name="dummy_content">DUMMY\nCONTENT</string>
+    <string name="title_activity_setup_timer">SetupTimerActivity</string>
+    <string name="time_divider">:</string>
+    <string name="until">Until</string>
+    <string name="hours">Hours</string>
+    <string name="hour">hour</string>
+    <string name="minutes">Minutes</string>
+    <string name="minute">Minute</string>
+    <string name="am">AM</string>
+    <string name="pm">PM</string>
+    <string name="tomorrow">Tomorrow</string>
+    <string name="today">Today</string>
+    <string name="no_input_timer">Pick a time</string>
+
+    <string name="btn_start">START</string>
+    <string name="btn_roulette">ROULETTE</string>
+    <string name="btn_collection">COLLECTION</string>
+
 </resources>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="time_divider_side_margin">3dp</dimen>
+    <dimen name="time_notice_top_margin">16dp</dimen>
+    <dimen name="roulette_colleciton_margin">32dp</dimen>
+</resources>
