@@ -2,13 +2,16 @@ package roh.sijine.goalachiever;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
+import android.preference.PreferenceManager;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.ProgressBar;
 
-import com.cengalabs.flatui.FlatUI;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * An example full-screen activity that shows and hides the system UI (i.e.
@@ -18,16 +21,29 @@ public class IntroActivity extends AppCompatActivity {
 
     private Context mContext;
 
+    private SharedPreferences preferences;
+    private SharedPreferences listPreferences;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        FlatUI.initDefaultValues(this);
-        FlatUI.setDefaultTheme(FlatUI.GRASS);
-
         mContext = this.getApplicationContext();
 
         setContentView(R.layout.activity_intro);
+
+        preferences = PreferenceManager.getDefaultSharedPreferences(mContext);
+        listPreferences = PreferenceManager.getDefaultSharedPreferences(mContext);
+
+        // setup basic values
+        int coin = preferences.getInt("COIN", 0);
+        List<Integer> giftCards = new ArrayList<Integer>();
+        giftCards.add(preferences.getInt("GC1", 0));
+        giftCards.add(preferences.getInt("GC2", 0));
+        giftCards.add(preferences.getInt("GC3", 0));
+        giftCards.add(preferences.getInt("GC4", 0));
+        giftCards.add(preferences.getInt("GC5", 0));
+//        int maxPiece = preferences.getInt("MAXPIECE", 6);
 
         ActionBar actionBar = getSupportActionBar();
         if (actionBar != null) {

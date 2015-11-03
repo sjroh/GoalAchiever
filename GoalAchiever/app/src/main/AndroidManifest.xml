@@ -2,6 +2,20 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="roh.sijine.goalachiever">
 
+    <receiver android:name=".UserPresentBroadcastReceiver">
+        <intent-filter>
+            <action android:name="android.intent.action.USER_PRESENT" />
+            <action android:name="android.intent.action.ACTION_SHUTDOWN" />
+
+            // testing
+            <action android:name="android.intent.action.MAIN" />
+
+            <category android:name="android.intent.category.LAUNCHER" />
+            <category android:name="android.intent.category.HOME" />
+            <category android:name="android.intent.category.DEFAULT" />
+        </intent-filter>
+    </receiver>
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -23,6 +37,16 @@
             android:name=".SetupTimerActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:label="@string/title_activity_setup_timer"
+            android:theme="@style/FullscreenTheme" />
+        <activity
+            android:name=".WatcherActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="@string/title_activity_watcher"
+            android:theme="@style/FullscreenTheme" />
+        <activity
+            android:name=".ResultActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="@string/title_activity_result"
             android:theme="@style/FullscreenTheme"></activity>
     </application>
 

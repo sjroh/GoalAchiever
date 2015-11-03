@@ -4,6 +4,7 @@
     <string name="title_activity_setup_timer">SetupTimerActivity</string>
     <string name="time_divider">:</string>
     <string name="until">Until</string>
+    <string name="later">Later</string>
     <string name="hours">Hours</string>
     <string name="hour">hour</string>
     <string name="minutes">Minutes</string>
@@ -17,5 +18,14 @@
     <string name="btn_start">START</string>
     <string name="btn_roulette">ROULETTE</string>
     <string name="btn_collection">COLLECTION</string>
+    <string name="btn_stop">STOP</string>
+
+    <string name="title_activity_watcher">WatcherActivity</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
+
+    <string name="coin_preset">###</string>
+
+    <string name="title_activity_result">ResultActivity</string>
 
 </resources>
