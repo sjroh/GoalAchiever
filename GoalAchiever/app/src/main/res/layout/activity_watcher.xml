@@ -9,16 +9,16 @@
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#0099cc"
-        tools:context="roh.sijine.focusimprovement.WatcherActivity"
+    android:background="#FFFFFF"
         android:orientation="vertical"
-    android:weightSum="10">
+    android:weightSum="10"
+    tools:context="roh.sijine.focusimprovement.WatcherActivity">
 
         <LinearLayout
-            android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_weight="4">
+            android:layout_weight="4"
+            android:orientation="vertical">
 
             <TextView
                 android:id="@+id/fullscreen_content"
@@ -26,33 +26,33 @@
                 android:layout_height="match_parent"
                 android:gravity="center"
                 android:keepScreenOn="true"
-                android:text="@string/dummy_content"
+                android:text="@string/watcher_preset"
                 android:textColor="#33b5e5"
                 android:textSize="50sp"
                 android:textStyle="bold" />
         </LinearLayout>
 
         <LinearLayout
-            android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="6"
-            android:gravity="center">
+            android:gravity="center"
+            android:orientation="vertical">
             <info.hoang8f.widget.FButton
+                android:id="@+id/btn_stop"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:gravity="center"
-                android:id="@+id/btn_stop"
-                android:text="@string/btn_stop"
-                fbutton:buttonColor="@color/fbutton_color_alizarin"
-                fbutton:shadowColor="@color/fbutton_color_pomegranate"
-                fbutton:shadowEnabled="true"
-                android:textColor="@android:color/white"
                 android:paddingLeft="@dimen/button_padding_horizontal"
                 android:paddingRight="@dimen/button_padding_horizontal"
-                fbutton:shadowHeight="5dp"
+                android:text="@string/btn_stop"
+                android:textColor="@android:color/white"
+                fbutton:buttonColor="@color/fbutton_color_alizarin"
                 fbutton:cornerRadius="5dp"
+                fbutton:shadowColor="@color/fbutton_color_pomegranate"
+                fbutton:shadowEnabled="true"
+                fbutton:shadowHeight="5dp"
                 />
 
         </LinearLayout>

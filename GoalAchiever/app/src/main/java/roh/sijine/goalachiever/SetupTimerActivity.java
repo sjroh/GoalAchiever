@@ -115,7 +115,16 @@ public class SetupTimerActivity extends AppCompatActivity {
                 // move on to collection
             }
         });
+    }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        sh = new ScoreHandler(mContext);
+        textCoin = (TextView) findViewById(R.id.text_coin);
+        textCoin.setText(String.valueOf(sh.getCoin()));
+        hourPicker.setValue(0);
+        minPicker.setValue(0);
     }
 
     private void changeTimeNotice(int hour, int min) {

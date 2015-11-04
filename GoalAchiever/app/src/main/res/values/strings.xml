@@ -19,13 +19,20 @@
     <string name="btn_roulette">ROULETTE</string>
     <string name="btn_collection">COLLECTION</string>
     <string name="btn_stop">STOP</string>
+    <string name="btn_back">BACK</string>
 
     <string name="title_activity_watcher">WatcherActivity</string>
+    <string name="watcher_preset">Lock\nYour\nPhone</string>
+
     <string name="dummy_button">Dummy Button</string>
     <string name="dummy_content">DUMMY\nCONTENT</string>
 
     <string name="coin_preset">###</string>
 
     <string name="title_activity_result">ResultActivity</string>
+
+    <string name="result_fail">You failed to focus...</string>
+    <string name="result_succeed">Great!!</string>
+    <string name="result_stop">Comeback next time..</string>
 
 </resources>

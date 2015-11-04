@@ -31,6 +31,7 @@ public class WatcherActivity extends AppCompatActivity {
     private int minPicked;
     private int milliPicked;
     private int totalMin;
+    private int maxUnlock;
     private int timeLeft;
     private CountDownTimer cdt;
 //    private Calendar future;
@@ -45,23 +46,24 @@ public class WatcherActivity extends AppCompatActivity {
         hourPicked = intent.getIntExtra("hourPicked", 0);
         minPicked = intent.getIntExtra("minPicked", 0);
         totalMin = hourPicked * 60 + minPicked;
-        timeLeft = totalMin;
+        maxUnlock = totalMin / 30 + 1;
         milliPicked = intent.getIntExtra("milliPicked", 0);
+        timeLeft = milliPicked;
 
         mContext = this.getApplicationContext();
 
         cdt = new CountDownTimer(milliPicked, 1) {
-
             @Override
             public void onTick(long millisUntilFinished) {
-//                if (timeLeft != totalMin){
-//                    timeLeft -= 1;
-//                }
+                timeLeft -= 1;
             }
 
             @Override
             public void onFinish() {
                 Intent intent = new Intent(mContext, ResultActivity.class);
+                intent.putExtra("STATUS", true);
+                intent.putExtra("maxUnlock", maxUnlock);
+                intent.putExtra("unlockCounter", unlockCounter);
                 intent.putExtra("RESULT", "FROM TIMER");
                 startActivity(intent);
                 finish();
@@ -74,6 +76,7 @@ public class WatcherActivity extends AppCompatActivity {
             public void onClick(View v) {
                 cdt.cancel();
                 Intent intent = new Intent(mContext, ResultActivity.class);
+                intent.putExtra("STATUS", false);
                 intent.putExtra("RESULT", "FROM STOP");
                 startActivity(intent);
                 finish();
@@ -113,7 +116,13 @@ public class WatcherActivity extends AppCompatActivity {
         fullscreenTextview.setText(String.valueOf(unlockCounter));
 
         // if unlock counter is greater than min unlock
-
+        if (unlockCounter > maxUnlock) {
+            Intent intent = new Intent(mContext, ResultActivity.class);
+            intent.putExtra("STATUS", false);
+            intent.putExtra("RESULT", "FROM FORCE STOP");
+            startActivity(intent);
+            finish();
+        }
         // else keep going
 
     }

@@ -1,50 +1,64 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<!--<FrameLayout >-->
+
+<!-- The primary full-screen view. This can be replaced with whatever view
+     is needed to present your content, e.g. VideoView, SurfaceView,
+     TextureView, etc. -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:fbutton="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#0099cc"
-    tools:context="roh.sijine.goalachiever.ResultActivity">
+    android:background="#FFFFFF"
+    android:orientation="vertical"
+    android:weightSum="10"
+    tools:context="roh.sijine.focusimprovement.WatcherActivity">
 
-    <!-- The primary full-screen view. This can be replaced with whatever view
-         is needed to present your content, e.g. VideoView, SurfaceView,
-         TextureView, etc. -->
-    <TextView
-        android:id="@+id/fullscreen_content"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_weight="4"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/fullscreen_content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:keepScreenOn="true"
+            android:text="@string/watcher_preset"
+            android:textColor="#33b5e5"
+            android:textSize="50sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="6"
         android:gravity="center"
-        android:keepScreenOn="true"
-        android:text="@string/dummy_content"
-        android:textColor="#33b5e5"
-        android:textSize="50sp"
-        android:textStyle="bold" />
+        android:orientation="vertical">
+
+        <info.hoang8f.widget.FButton
+            android:id="@+id/btn_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:paddingLeft="@dimen/button_padding_horizontal"
+            android:paddingRight="@dimen/button_padding_horizontal"
+            android:text="@string/btn_back"
+            android:textColor="@android:color/white"
+            fbutton:buttonColor="@color/fbutton_color_peter_river"
+            fbutton:cornerRadius="5dp"
+            fbutton:shadowColor="@color/fbutton_color_belize_hole"
+            fbutton:shadowEnabled="true"
+            fbutton:shadowHeight="5dp" />
+
+    </LinearLayout>
+</LinearLayout>
+
 
     <!-- This FrameLayout insets its children based on system windows using
          android:fitsSystemWindows. -->
-    <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:fitsSystemWindows="true">
 
-        <LinearLayout
-            android:id="@+id/fullscreen_content_controls"
-            style="?metaButtonBarStyle"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="bottom|center_horizontal"
-            android:background="@color/black_overlay"
-            android:orientation="horizontal"
-            tools:ignore="UselessParent">
-
-            <Button
-                android:id="@+id/dummy_button"
-                style="?metaButtonBarButtonStyle"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/dummy_button" />
-
-        </LinearLayout>
-    </FrameLayout>
-
-</FrameLayout>
+    <!--</FrameLayout>-->
