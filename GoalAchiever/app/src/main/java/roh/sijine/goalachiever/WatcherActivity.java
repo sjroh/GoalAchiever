@@ -36,6 +36,8 @@ public class WatcherActivity extends AppCompatActivity {
     private CountDownTimer cdt;
 //    private Calendar future;
 
+    private HomeWatcher mHomeWatcher;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -52,6 +54,24 @@ public class WatcherActivity extends AppCompatActivity {
 
         mContext = this.getApplicationContext();
 
+        mHomeWatcher = new HomeWatcher(this);
+        mHomeWatcher.setOnHomePressedListener(new OnHomePressedListener() {
+            @Override
+            public void onHomePressed() {
+                callResultActivity(false, "FROM HOME BUTTON STOP");
+//                Intent intent = new Intent(mContext, ResultActivity.class);
+//                intent.putExtra("STATUS", false);
+//                intent.putExtra("RESULT", "FROM FORCE STOP");
+//                startActivity(intent);
+//                finish();
+            }
+
+            @Override
+            public void onHomeLongPressed() {
+            }
+        });
+        mHomeWatcher.startWatch();
+
         cdt = new CountDownTimer(milliPicked, 1) {
             @Override
             public void onTick(long millisUntilFinished) {
@@ -60,13 +80,14 @@ public class WatcherActivity extends AppCompatActivity {
 
             @Override
             public void onFinish() {
-                Intent intent = new Intent(mContext, ResultActivity.class);
-                intent.putExtra("STATUS", true);
-                intent.putExtra("maxUnlock", maxUnlock);
-                intent.putExtra("unlockCounter", unlockCounter);
-                intent.putExtra("RESULT", "FROM TIMER");
-                startActivity(intent);
-                finish();
+                callResultActivity(true, "FROM TIMER");
+//                Intent intent = new Intent(mContext, ResultActivity.class);
+//                intent.putExtra("STATUS", true);
+//                intent.putExtra("maxUnlock", maxUnlock);
+//                intent.putExtra("unlockCounter", unlockCounter);
+//                intent.putExtra("RESULT", "FROM TIMER");
+//                startActivity(intent);
+//                finish();
             }
         }.start();
 
@@ -75,11 +96,12 @@ public class WatcherActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 cdt.cancel();
-                Intent intent = new Intent(mContext, ResultActivity.class);
-                intent.putExtra("STATUS", false);
-                intent.putExtra("RESULT", "FROM STOP");
-                startActivity(intent);
-                finish();
+                callResultActivity(false, "FROM STOP");
+//                Intent intent = new Intent(mContext, ResultActivity.class);
+//                intent.putExtra("STATUS", false);
+//                intent.putExtra("RESULT", "FROM STOP");
+//                startActivity(intent);
+//                finish();
             }
         });
 
@@ -108,6 +130,18 @@ public class WatcherActivity extends AppCompatActivity {
         super.onDestroy();
     }
 
+    private void callResultActivity(boolean status, String message) {
+        Intent intent = new Intent(mContext, ResultActivity.class);
+        intent.putExtra("STATUS", status);
+        intent.putExtra("RESULT", message);
+        if (status) {
+            intent.putExtra("maxUnlock", maxUnlock);
+            intent.putExtra("unlockCounter", unlockCounter);
+        }
+        startActivity(intent);
+        finish();
+    }
+
     public void updateCounter() {
         unlockCounter++;
         Log.d("[WATCH_ACTIVITY]", "### count = " + unlockCounter);
@@ -117,11 +151,12 @@ public class WatcherActivity extends AppCompatActivity {
 
         // if unlock counter is greater than min unlock
         if (unlockCounter > maxUnlock) {
-            Intent intent = new Intent(mContext, ResultActivity.class);
-            intent.putExtra("STATUS", false);
-            intent.putExtra("RESULT", "FROM FORCE STOP");
-            startActivity(intent);
-            finish();
+            callResultActivity(false, "FROM FORCE STOP");
+//            Intent intent = new Intent(mContext, ResultActivity.class);
+//            intent.putExtra("STATUS", false);
+//            intent.putExtra("RESULT", "FROM FORCE STOP");
+//            startActivity(intent);
+//            finish();
         }
         // else keep going
 

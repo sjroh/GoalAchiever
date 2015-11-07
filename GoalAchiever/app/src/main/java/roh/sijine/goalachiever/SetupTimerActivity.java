@@ -125,6 +125,9 @@ public class SetupTimerActivity extends AppCompatActivity {
         textCoin.setText(String.valueOf(sh.getCoin()));
         hourPicker.setValue(0);
         minPicker.setValue(0);
+        hourPicked = 0;
+        minPicked = 0;
+        timeNotice.setText(mContext.getResources().getString(R.string.no_input_timer));
     }
 
     private void changeTimeNotice(int hour, int min) {
