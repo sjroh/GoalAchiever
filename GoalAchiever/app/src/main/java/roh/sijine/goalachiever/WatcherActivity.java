@@ -15,10 +15,6 @@ import android.widget.Toast;
 
 import info.hoang8f.widget.FButton;
 
-/**
- * An example full-screen activity that shows and hides the system UI (i.e.
- * status bar and navigation/system bar) with user interaction.
- */
 public class WatcherActivity extends AppCompatActivity {
 
     final private int timeInterval = 60000;
@@ -34,16 +30,15 @@ public class WatcherActivity extends AppCompatActivity {
     private int maxUnlock;
     private int timeLeft;
     private CountDownTimer cdt;
-//    private Calendar future;
 
     private HomeWatcher mHomeWatcher;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_watcher);
 
-//        future = (Calendar) savedInstanceState.get("future");
         Intent intent = getIntent();
         hourPicked = intent.getIntExtra("hourPicked", 0);
         minPicked = intent.getIntExtra("minPicked", 0);
@@ -59,11 +54,6 @@ public class WatcherActivity extends AppCompatActivity {
             @Override
             public void onHomePressed() {
                 callResultActivity(false, "FROM HOME BUTTON STOP");
-//                Intent intent = new Intent(mContext, ResultActivity.class);
-//                intent.putExtra("STATUS", false);
-//                intent.putExtra("RESULT", "FROM FORCE STOP");
-//                startActivity(intent);
-//                finish();
             }
 
             @Override
@@ -81,13 +71,6 @@ public class WatcherActivity extends AppCompatActivity {
             @Override
             public void onFinish() {
                 callResultActivity(true, "FROM TIMER");
-//                Intent intent = new Intent(mContext, ResultActivity.class);
-//                intent.putExtra("STATUS", true);
-//                intent.putExtra("maxUnlock", maxUnlock);
-//                intent.putExtra("unlockCounter", unlockCounter);
-//                intent.putExtra("RESULT", "FROM TIMER");
-//                startActivity(intent);
-//                finish();
             }
         }.start();
 
@@ -97,11 +80,6 @@ public class WatcherActivity extends AppCompatActivity {
             public void onClick(View v) {
                 cdt.cancel();
                 callResultActivity(false, "FROM STOP");
-//                Intent intent = new Intent(mContext, ResultActivity.class);
-//                intent.putExtra("STATUS", false);
-//                intent.putExtra("RESULT", "FROM STOP");
-//                startActivity(intent);
-//                finish();
             }
         });
 
@@ -110,7 +88,6 @@ public class WatcherActivity extends AppCompatActivity {
         unlockCounter = 0;
 
         registerReceiver(unlockedReceiver, new IntentFilter("android.intent.action.USER_PRESENT"));
-
 
     }
 
@@ -152,11 +129,6 @@ public class WatcherActivity extends AppCompatActivity {
         // if unlock counter is greater than min unlock
         if (unlockCounter > maxUnlock) {
             callResultActivity(false, "FROM FORCE STOP");
-//            Intent intent = new Intent(mContext, ResultActivity.class);
-//            intent.putExtra("STATUS", false);
-//            intent.putExtra("RESULT", "FROM FORCE STOP");
-//            startActivity(intent);
-//            finish();
         }
         // else keep going
 

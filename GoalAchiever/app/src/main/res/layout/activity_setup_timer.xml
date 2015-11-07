@@ -1,21 +1,17 @@
-<!--<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"--><!--xmlns:fbutton="http://schemas.android.com/apk/res-auto"--><!--xmlns:tools="http://schemas.android.com/tools"--><!--android:layout_width="match_parent"--><!--android:layout_height="match_parent"--><!--android:background="#FFFFFF"--><!--tools:context="roh.sijine.goalachiever.SetupTimerActivity">-->
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:fbutton="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    tools:context="roh.sijine.goalachiever.SetupTimerActivity">
 
-    <!-- The primary full-screen view. This can be replaced with whatever view
-         is needed to present your content, e.g. VideoView, SurfaceView,
-         TextureView, etc. -->
-
-    <!-- This FrameLayout insets its children based on system windows using
-         android:fitsSystemWindows. -->
-
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:fbutton="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="#FFFFFF"
         android:orientation="vertical"
-        android:weightSum="10"
-        tools:context="roh.sijine.goalachiever.SetupTimerActivity">
+        android:weightSum="10">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -25,23 +21,6 @@
             android:gravity="center"
             android:orientation="vertical"
             android:weightSum="10">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_weight="1.5"
-                android:gravity="top|right"
-                android:orientation="vertical">
-
-                <TextView
-                    android:id="@+id/text_coin"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="@dimen/coin_text_margin"
-                    android:text="@string/coin_preset"
-                    android:textAppearance="?android:attr/textAppearanceLarge" />
-            </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -173,4 +152,21 @@
         </LinearLayout>
     </LinearLayout>
 
-    <!--</FrameLayout>-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/coin_text_height"
+        android:layout_gravity="center"
+        android:gravity="top|right"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/text_coin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/coin_text_margin"
+            android:text="@string/coin_preset"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textSize="@dimen/coin_text_size" />
+    </LinearLayout>
+
+</RelativeLayout>

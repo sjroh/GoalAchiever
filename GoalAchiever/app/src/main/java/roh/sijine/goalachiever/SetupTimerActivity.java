@@ -15,13 +15,8 @@ import java.util.Calendar;
 
 import info.hoang8f.widget.FButton;
 
-/**
- * An example full-screen activity that shows and hides the system UI (i.e.
- * status bar and navigation/system bar) with user interaction.
- */
-public class SetupTimerActivity extends AppCompatActivity {
 
-//    private SharedPreferences preferences;
+public class SetupTimerActivity extends AppCompatActivity {
 
     final private int maxHour = 5;
     final private int maxMin = 59;
@@ -47,9 +42,9 @@ public class SetupTimerActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        mContext = this.getApplicationContext();
-
         setContentView(R.layout.activity_setup_timer);
+
+        mContext = this.getApplicationContext();
 
         ActionBar actionBar = getSupportActionBar();
         if (actionBar != null) {
@@ -105,6 +100,8 @@ public class SetupTimerActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // move on to roulette
+                Intent intent = new Intent(mContext, RouletteActivity.class);
+                startActivity(intent);
             }
         });
 

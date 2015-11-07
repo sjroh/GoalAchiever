@@ -6,7 +6,6 @@
         <intent-filter>
             <action android:name="android.intent.action.USER_PRESENT" />
             <action android:name="android.intent.action.ACTION_SHUTDOWN" />
-
             // testing
             <action android:name="android.intent.action.MAIN" />
 
@@ -47,6 +46,16 @@
             android:name=".ResultActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:label="@string/title_activity_result"
+            android:theme="@style/FullscreenTheme" />
+        <activity
+            android:name=".RouletteActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="@string/title_activity_roulette"
+            android:theme="@style/FullscreenTheme" />
+        <activity
+            android:name=".CollectionActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="@string/title_activity_collection"
             android:theme="@style/FullscreenTheme"></activity>
     </application>
 

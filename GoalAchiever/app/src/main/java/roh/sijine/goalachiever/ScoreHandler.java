@@ -12,14 +12,12 @@ import java.util.List;
  * Created by sijine on 11/2/15.
  */
 public class ScoreHandler {
-    private SharedPreferences preferences;
-    private SharedPreferences listPreferences;
-
-    private int coin;
-    private List<Integer> giftCards;
-
     final private int MAXPIECE = 6;
     final private int MAXGIFTCARDS = 5;
+    private SharedPreferences preferences;
+    private SharedPreferences listPreferences;
+    private int coin;
+    private List<Integer> giftCards;
 
     ScoreHandler(Context mContext) {
         preferences = PreferenceManager.getDefaultSharedPreferences(mContext);
@@ -43,14 +41,14 @@ public class ScoreHandler {
         return coin;
     }
 
-    public void addCoin(int c) {
+    public void addCoin(int c) { // c is the number of coins that you want to add.
         SharedPreferences.Editor editor = preferences.edit();
         coin += c;
         editor.putInt("COIN", coin);
         editor.commit();
     }
 
-    public void addGiftCardPiece(int i) {
+    public void addGiftCardPiece(int i) { // i is a index number of giftcard
         if (i < MAXGIFTCARDS && i >= 0) {
             if (giftCards.get(i) < MAXPIECE) {
                 giftCards.set(i, Integer.valueOf(giftCards.get(i) + 1));
@@ -59,6 +57,21 @@ public class ScoreHandler {
                 editor.commit();
             } else {
                 Log.d("[SCORE_HANDLER]", "### SELECTED GIFT CARD is already MAX");
+            }
+        } else {
+            Log.d("[SCORE_HANDLER]", "### OUT OF RANGE, index of Gift Cards");
+        }
+    }
+
+    public void exchangeGiftCard(int i) { // i is a index number of giftcard
+        if (i < MAXGIFTCARDS && i >= 0) {
+            if (giftCards.get(i) == MAXPIECE) {
+                giftCards.set(i, Integer.valueOf(0));
+                SharedPreferences.Editor editor = preferences.edit();
+                editor.putInt("GC" + String.valueOf(i + 1), giftCards.get(i));
+                editor.commit();
+            } else {
+                Log.d("[SCORE_HANDLER]", "### SELECTED GIFT CARD doesn't have enough pieces.");
             }
         } else {
             Log.d("[SCORE_HANDLER]", "### OUT OF RANGE, index of Gift Cards");

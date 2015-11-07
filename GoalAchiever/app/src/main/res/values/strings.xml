@@ -35,4 +35,8 @@
     <string name="result_succeed">Great!!</string>
     <string name="result_stop">Comeback next time..</string>
 
+    <string name="title_activity_roulette">RouletteActivity</string>
+
+    <string name="title_activity_collection">CollectionActivity</string>
+
 </resources>

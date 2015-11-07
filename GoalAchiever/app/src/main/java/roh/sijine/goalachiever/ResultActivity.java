@@ -9,10 +9,6 @@ import android.widget.TextView;
 
 import info.hoang8f.widget.FButton;
 
-/**
- * An example full-screen activity that shows and hides the system UI (i.e.
- * status bar and navigation/system bar) with user interaction.
- */
 public class ResultActivity extends AppCompatActivity {
 
     private Context mContext;
