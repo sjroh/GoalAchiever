@@ -2,6 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:fbutton="http://schemas.android.com/apk/res-auto"
     android:background="#FFFFFF"
     tools:context="roh.sijine.goalachiever.RouletteActivity">
 
@@ -12,7 +13,41 @@
         android:orientation="vertical">
 
         <!-- Put everything in here -->
+        <ImageView
+        android:id="@+id/roulette"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:layout_marginTop= "60dp"
+        android:layout_gravity= "center_horizontal"
+        />
 
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="4"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <info.hoang8f.widget.FButton
+            android:id="@+id/btn_spin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="@dimen/roulette_colleciton_margin"
+            android:layout_marginRight="@dimen/roulette_colleciton_margin"
+            android:layout_marginTop="170dp"
+            android:gravity="center"
+            android:paddingLeft="@dimen/button_padding_horizontal"
+            android:paddingRight="@dimen/button_padding_horizontal"
+            android:text="Spin"
+            android:textColor="@android:color/white"
+            fbutton:buttonColor="@color/fbutton_color_turquoise"
+            fbutton:cornerRadius="5dp"
+            fbutton:shadowColor="@color/fbutton_color_green_sea"
+            fbutton:shadowEnabled="true"
+            fbutton:shadowHeight="5dp" />
     </LinearLayout>
 
     <LinearLayout
