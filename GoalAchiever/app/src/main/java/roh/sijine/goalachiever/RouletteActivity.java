@@ -1,30 +1,26 @@
 package roh.sijine.goalachiever;
 
 import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.RotateAnimation;
-import android.widget.AbsoluteLayout;
-import android.widget.FrameLayout;
 import android.widget.ImageView;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import info.hoang8f.widget.FButton;
 
 public class RouletteActivity extends AppCompatActivity {
 
+    private static final float rotate_from = 0.0f;
+    private static final float rotate_to = -10.0f * 360.0f;
     private Context mContext;
     private ScoreHandler sh;
     private TextView textCoin;
     private ImageView roulette;
     private FButton btnSpin;
-    private static final float rotate_from = 0.0f;
-    private static final float rotate_to = -10.0f * 360.0f;
     /*  README
     *       READ ScoreHandler
     *       You can add coins by using sh.addCoin(int)
@@ -39,6 +35,11 @@ public class RouletteActivity extends AppCompatActivity {
         mContext = this.getApplicationContext();
 
         setContentView(R.layout.activity_roulette);
+
+        ActionBar actionBar = getSupportActionBar();
+        if (actionBar != null) {
+            actionBar.hide();
+        }
 
         // setup text coin
         sh = new ScoreHandler(mContext);
