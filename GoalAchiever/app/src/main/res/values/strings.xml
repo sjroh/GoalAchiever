@@ -20,7 +20,9 @@
     <string name="btn_collection">COLLECTION</string>
     <string name="btn_stop">STOP</string>
     <string name="btn_back">BACK</string>
-    <string name="btn_buy_giftcardpiece">Buy Gift Card Piece</string>
+    <string name="btn_buy">BUY</string>
+    <string name="btn_ok">OK</string>
+    <string name="btn_cancel">CANCEL</string>
 
     <string name="title_activity_watcher">WatcherActivity</string>
     <string name="watcher_preset">Lock\nYour\nPhone</string>

@@ -110,8 +110,12 @@ public class SetupTimerActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // move on to collection
+                Intent intent = new Intent(mContext, CollectionActivity.class);
+                startActivity(intent);
             }
         });
+
+
     }
 
     @Override

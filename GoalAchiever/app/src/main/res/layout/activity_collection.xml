@@ -7,49 +7,52 @@
     android:orientation="vertical"
     tools:context="roh.sijine.goalachiever.CollectionActivit">
 
-    <!--&lt;!&ndash; Coin layout &ndash;&gt;-->
-    <!--<LinearLayout-->
-    <!--android:layout_width="match_parent"-->
-    <!--android:layout_height="@dimen/coin_text_height"-->
-    <!--android:layout_gravity="center"-->
-    <!--android:gravity="center_vertical|right"-->
-    <!--android:orientation="horizontal">-->
-
-    <!--<ImageView-->
-    <!--android:layout_width="@dimen/coin_text_size"-->
-    <!--android:layout_height="@dimen/coin_text_size"-->
-    <!--android:src="@drawable/coin"-->
-    <!--android:layout_gravity="center_vertical|right" />-->
-
-    <!--<TextView-->
-    <!--android:id="@+id/text_coin"-->
-    <!--android:layout_width="wrap_content"-->
-    <!--android:layout_height="wrap_content"-->
-    <!--android:layout_margin="@dimen/coin_text_margin"-->
-    <!--android:text="@string/coin_preset"-->
-    <!--android:textAppearance="?android:attr/textAppearanceLarge"-->
-    <!--android:textSize="@dimen/coin_text_size"-->
-    <!--android:layout_gravity="center_vertical|right" />-->
-    <!--</LinearLayout>-->
-
     <include layout="@layout/layout_coin" />
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="@dimen/buy_giftcardpiece_height"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/giftcard_row_margin_bottom"
+        android:layout_marginTop="@dimen/giftcard_row_margin"
         android:background="#FFFFFF"
         android:gravity="center"
         android:orientation="vertical">
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/giftcard_row_margin"
+            android:background="#FFFFFF"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Random Gift Card piece = "
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+
+            <ImageView
+                android:layout_width="@dimen/coin_text_size"
+                android:layout_height="@dimen/coin_text_size"
+                android:src="@drawable/coin" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=" 1,000"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+        </LinearLayout>
+
         <info.hoang8f.widget.FButton
-            android:id="@+id/btn_spin"
+            android:id="@+id/btn_buy_piece"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:gravity="center"
             android:paddingLeft="@dimen/button_padding_horizontal"
             android:paddingRight="@dimen/button_padding_horizontal"
-            android:text="@string/btn_buy_giftcardpiece"
+            android:text="@string/btn_buy"
             android:textColor="@android:color/white"
             fbutton:buttonColor="@color/fbutton_color_turquoise"
             fbutton:cornerRadius="5dp"
@@ -65,8 +68,10 @@
         android:background="#FFFFFF"
         android:orientation="vertical">
 
-        <!-- Put everything in here -->
-
+        <ListView
+            android:id="@+id/list_giftcard"
+            android:layout_width="fill_parent"
+            android:layout_height="match_parent" />
     </LinearLayout>
 
 </LinearLayout>

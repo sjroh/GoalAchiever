@@ -3,6 +3,7 @@ package roh.sijine.goalachiever;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.TextView;
@@ -27,6 +28,11 @@ public class ResultActivity extends AppCompatActivity {
         mContext = this.getApplicationContext();
 
         setContentView(R.layout.activity_result);
+
+        ActionBar actionBar = getSupportActionBar();
+        if (actionBar != null) {
+            actionBar.hide();
+        }
 
         Intent intent = getIntent();
         status = intent.getBooleanExtra("STATUS", false);
