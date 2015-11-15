@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:fbutton="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="10dp">
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Enter Your Email"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <EditText
+        android:id="@+id/input_email"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter Your Email here"
+        android:inputType="textEmailAddress"
+        android:padding="10dp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:weightSum="10">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="5"
+            android:orientation="vertical">
+
+            <info.hoang8f.widget.FButton
+                android:id="@+id/btn_cancel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:paddingLeft="@dimen/button_padding_horizontal"
+                android:paddingRight="@dimen/button_padding_horizontal"
+                android:text="@string/btn_cancel"
+                android:textColor="@android:color/white"
+                fbutton:buttonColor="@color/fbutton_color_alizarin"
+                fbutton:cornerRadius="5dp"
+                fbutton:shadowColor="@color/fbutton_color_pomegranate"
+                fbutton:shadowEnabled="true"
+                fbutton:shadowHeight="5dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="5"
+            android:orientation="vertical">
+
+            <info.hoang8f.widget.FButton
+                android:id="@+id/btn_ok"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:paddingLeft="@dimen/button_padding_horizontal"
+                android:paddingRight="@dimen/button_padding_horizontal"
+                android:text="@string/btn_ok"
+                android:textColor="@android:color/white"
+                fbutton:buttonColor="@color/fbutton_color_peter_river"
+                fbutton:cornerRadius="5dp"
+                fbutton:shadowColor="@color/fbutton_color_belize_hole"
+                fbutton:shadowEnabled="true"
+                fbutton:shadowHeight="5dp" />
+        </LinearLayout>
+
+    </LinearLayout>
+</LinearLayout>
