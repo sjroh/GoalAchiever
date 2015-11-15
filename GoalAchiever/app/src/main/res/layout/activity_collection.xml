@@ -1,9 +1,63 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:fbutton="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#FFFFFF"
-    tools:context="roh.sijine.goalachiever.CollectionActivity">
+    android:orientation="vertical"
+    tools:context="roh.sijine.goalachiever.CollectionActivit">
+
+    <!--&lt;!&ndash; Coin layout &ndash;&gt;-->
+    <!--<LinearLayout-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="@dimen/coin_text_height"-->
+    <!--android:layout_gravity="center"-->
+    <!--android:gravity="center_vertical|right"-->
+    <!--android:orientation="horizontal">-->
+
+    <!--<ImageView-->
+    <!--android:layout_width="@dimen/coin_text_size"-->
+    <!--android:layout_height="@dimen/coin_text_size"-->
+    <!--android:src="@drawable/coin"-->
+    <!--android:layout_gravity="center_vertical|right" />-->
+
+    <!--<TextView-->
+    <!--android:id="@+id/text_coin"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_margin="@dimen/coin_text_margin"-->
+    <!--android:text="@string/coin_preset"-->
+    <!--android:textAppearance="?android:attr/textAppearanceLarge"-->
+    <!--android:textSize="@dimen/coin_text_size"-->
+    <!--android:layout_gravity="center_vertical|right" />-->
+    <!--</LinearLayout>-->
+
+    <include layout="@layout/layout_coin" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/buy_giftcardpiece_height"
+        android:background="#FFFFFF"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <info.hoang8f.widget.FButton
+            android:id="@+id/btn_spin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:paddingLeft="@dimen/button_padding_horizontal"
+            android:paddingRight="@dimen/button_padding_horizontal"
+            android:text="@string/btn_buy_giftcardpiece"
+            android:textColor="@android:color/white"
+            fbutton:buttonColor="@color/fbutton_color_turquoise"
+            fbutton:cornerRadius="5dp"
+            fbutton:shadowColor="@color/fbutton_color_green_sea"
+            fbutton:shadowEnabled="true"
+            fbutton:shadowHeight="5dp" />
+    </LinearLayout>
+
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -15,21 +69,5 @@
 
     </LinearLayout>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/coin_text_height"
-        android:layout_gravity="center"
-        android:gravity="top|right"
-        android:orientation="vertical">
+</LinearLayout>
 
-        <TextView
-            android:id="@+id/text_coin"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="@dimen/coin_text_margin"
-            android:text="@string/coin_preset"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:textSize="@dimen/coin_text_size" />
-    </LinearLayout>
-
-</RelativeLayout>

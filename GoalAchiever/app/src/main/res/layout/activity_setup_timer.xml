@@ -152,21 +152,8 @@
         </LinearLayout>
     </LinearLayout>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/coin_text_height"
-        android:layout_gravity="center"
-        android:gravity="top|right"
-        android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/text_coin"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="@dimen/coin_text_margin"
-            android:text="@string/coin_preset"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:textSize="@dimen/coin_text_size" />
-    </LinearLayout>
+    <include layout="@layout/layout_coin" />
+
 
 </RelativeLayout>

@@ -20,6 +20,7 @@
     <string name="btn_collection">COLLECTION</string>
     <string name="btn_stop">STOP</string>
     <string name="btn_back">BACK</string>
+    <string name="btn_buy_giftcardpiece">Buy Gift Card Piece</string>
 
     <string name="title_activity_watcher">WatcherActivity</string>
     <string name="watcher_preset">Lock\nYour\nPhone</string>
@@ -27,7 +28,7 @@
     <string name="dummy_button">Dummy Button</string>
     <string name="dummy_content">DUMMY\nCONTENT</string>
 
-    <string name="coin_preset">###</string>
+    <string name="coin_preset">0</string>
 
     <string name="title_activity_result">ResultActivity</string>
 
