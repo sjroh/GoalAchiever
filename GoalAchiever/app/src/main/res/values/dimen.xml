@@ -5,7 +5,7 @@
     <dimen name="roulette_colleciton_margin">16dp</dimen>
     <dimen name="coin_text_margin">8dp</dimen>
     <dimen name="coin_text_height">40dp</dimen>
-    <dimen name="coin_text_size">18dp</dimen>
+    <dimen name="coin_text_size">23dp</dimen>
     <dimen name="giftcard_row_height">80dp</dimen>
     <dimen name="giftcard_row_margin">8dp</dimen>
     <dimen name="giftcard_row_margin_bottom">24dp</dimen>
@@ -13,6 +13,7 @@
     <dimen name="buy_giftcardpiece_height">100dp</dimen>
 
     <dimen name="button_padding_vertical">4dp</dimen>
-    <dimen name="button_padding_horizontal">8dp</dimen>
+    <dimen name="button_padding_horizontal">20dp</dimen>
+    <dimen name="button_margin_vertical">8dp</dimen>
 
 </resources>
