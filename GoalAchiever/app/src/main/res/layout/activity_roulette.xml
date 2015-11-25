@@ -50,6 +50,6 @@
             fbutton:shadowHeight="5dp" />
     </LinearLayout>
 
-    <include layout="@layout/layout_coin" />
+    <!--<include layout="@layout/layout_coin" />-->
 
 </RelativeLayout>

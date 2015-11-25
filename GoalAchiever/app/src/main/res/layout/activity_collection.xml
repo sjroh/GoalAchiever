@@ -7,7 +7,7 @@
     android:orientation="vertical"
     tools:context="roh.sijine.goalachiever.CollectionActivit">
 
-    <include layout="@layout/layout_coin" />
+    <!--<include layout="@layout/layout_coin" />-->
 
     <LinearLayout
         android:layout_width="match_parent"

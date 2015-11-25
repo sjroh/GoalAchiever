@@ -1,13 +1,17 @@
 package roh.sijine.goalachiever;
 
 import android.content.Context;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
+import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.RotateAnimation;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import info.hoang8f.widget.FButton;
@@ -37,9 +41,17 @@ public class RouletteActivity extends AppCompatActivity {
         setContentView(R.layout.activity_roulette);
 
         ActionBar actionBar = getSupportActionBar();
-        if (actionBar != null) {
-            actionBar.hide();
-        }
+//        if (actionBar != null) {
+//            actionBar.hide();
+//        }
+        actionBar.setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.fbutton_color_midnight_blue)));
+        actionBar.setDisplayShowHomeEnabled(false);
+        actionBar.setDisplayShowTitleEnabled(false);
+        LayoutInflater inflator = LayoutInflater.from(this);
+        View v = inflator.inflate(R.layout.layout_actionbar, null);
+        ((RelativeLayout) v).setGravity(Gravity.RIGHT);
+        actionBar.setCustomView(v);
+        actionBar.setDisplayShowCustomEnabled(true);
 
         // setup text coin
         sh = new ScoreHandler(mContext);
