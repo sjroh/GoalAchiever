@@ -12,13 +12,14 @@
         android:background="@color/fbutton_color_peter_river"
         android:orientation="vertical"
         android:weightSum="10">
-        <android.support.v7.widget.Toolbar
-            android:id="@+id/my_toolbar"
-            android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:background="@color/fbutton_color_midnight_blue"
-            android:elevation="4dp"
-            android:theme="@style/ThemeOverlay.AppCompat.ActionBar"/>
+        <!--<android.support.v7.widget.Toolbar-->
+        <!--android:id="@+id/my_toolbar"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="?attr/actionBarSize"-->
+        <!--android:background="@color/fbutton_color_midnight_blue"-->
+        <!--android:layout_gravity="right"-->
+        <!--android:elevation="4dp"-->
+        <!--android:theme="@style/ThemeOverlay.AppCompat.ActionBar"/>-->
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -41,10 +42,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/no_input_timer"
-                    android:textSize="40sp"
-                    android:textStyle="bold"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
                     android:textColor="@color/white"
-                    android:textAppearance="?android:attr/textAppearanceLarge" />
+                    android:textSize="40sp"
+                    android:textStyle="bold" />
             </LinearLayout>
 
             <LinearLayout
@@ -107,17 +108,17 @@
                     android:id="@+id/btn_start"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
                     android:layout_gravity="center"
+                    android:layout_marginBottom="@dimen/button_margin_vertical"
                     android:layout_marginLeft="@dimen/roulette_colleciton_margin"
                     android:layout_marginRight="@dimen/roulette_colleciton_margin"
+                    android:layout_marginTop="@dimen/button_margin_vertical"
+                    android:layout_weight="1"
                     android:gravity="center"
                     android:paddingLeft="@dimen/button_padding_horizontal"
                     android:paddingRight="@dimen/button_padding_horizontal"
                     android:text="@string/btn_start"
                     android:textColor="@android:color/white"
-                    android:layout_marginBottom="@dimen/button_margin_vertical"
-                    android:layout_marginTop="@dimen/button_margin_vertical"
                     fbutton:buttonColor="@color/fbutton_color_belize_hole"
                     fbutton:cornerRadius="2dp"
                     fbutton:shadowColor="@color/fbutton_color_midnight_blue"
@@ -135,17 +136,17 @@
                     android:id="@+id/btn_roulette"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
                     android:layout_gravity="center"
+                    android:layout_marginBottom="@dimen/button_margin_vertical"
                     android:layout_marginLeft="@dimen/roulette_colleciton_margin"
                     android:layout_marginRight="@dimen/roulette_colleciton_margin"
+                    android:layout_marginTop="@dimen/button_margin_vertical"
+                    android:layout_weight="1"
                     android:gravity="center"
                     android:paddingLeft="@dimen/button_padding_horizontal"
                     android:paddingRight="@dimen/button_padding_horizontal"
                     android:text="@string/btn_roulette"
                     android:textColor="@android:color/white"
-                    android:layout_marginBottom="@dimen/button_margin_vertical"
-                    android:layout_marginTop="@dimen/button_margin_vertical"
                     fbutton:buttonColor="@color/fbutton_color_belize_hole"
                     fbutton:cornerRadius="2dp"
                     fbutton:shadowColor="@color/fbutton_color_midnight_blue"
@@ -162,17 +163,17 @@
                     android:id="@+id/btn_collection"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
                     android:layout_gravity="center"
+                    android:layout_marginBottom="@dimen/button_margin_vertical"
                     android:layout_marginLeft="@dimen/roulette_colleciton_margin"
                     android:layout_marginRight="@dimen/roulette_colleciton_margin"
+                    android:layout_marginTop="@dimen/button_margin_vertical"
+                    android:layout_weight="1"
                     android:gravity="center"
                     android:paddingLeft="@dimen/button_padding_horizontal"
                     android:paddingRight="@dimen/button_padding_horizontal"
                     android:text="@string/btn_collection"
                     android:textColor="@android:color/white"
-                    android:layout_marginBottom="@dimen/button_margin_vertical"
-                    android:layout_marginTop="@dimen/button_margin_vertical"
                     fbutton:buttonColor="@color/fbutton_color_belize_hole"
                     fbutton:cornerRadius="2dp"
                     fbutton:shadowColor="@color/fbutton_color_midnight_blue"
@@ -183,7 +184,7 @@
     </LinearLayout>
 
 
-    <include layout="@layout/layout_coin" />
+    <!--<include layout="@layout/layout_coin" />-->
 
 
 </RelativeLayout>
