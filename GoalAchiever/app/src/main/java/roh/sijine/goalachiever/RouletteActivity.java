@@ -59,8 +59,8 @@ public class RouletteActivity extends AppCompatActivity {
         textCoin.setText(String.valueOf(sh.getCoin()));
 
         // should change to spin wheel
-        roulette = (ImageView) findViewById(R.id.roulette);
-        roulette.setImageResource(R.drawable.roulette);
+//        roulette = (ImageView) findViewById(R.id.roulette);
+//        roulette.setImageResource(R.drawable.roulette);
 
         btnSpin = (FButton) findViewById(R.id.btn_spin);
         btnSpin.setOnClickListener(new View.OnClickListener() {

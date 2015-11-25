@@ -65,7 +65,6 @@ public class CollectionActivity extends AppCompatActivity implements
         listGiftCard = (ListView) findViewById(R.id.list_giftcard);
         listAdapter = new GiftCardAdapter(mContextAdapter, R.layout.layout_list_row, sh.getGiftCardList());
         listAdapter.setCustomButtonListner(CollectionActivity.this);
-
         listGiftCard.setAdapter(listAdapter);
 
         btnBuyPiece = (FButton) findViewById(R.id.btn_buy_piece);
@@ -89,8 +88,6 @@ public class CollectionActivity extends AppCompatActivity implements
                 } else {
                     Toast.makeText(v.getContext(), "NOT ENOUGH COINS", Toast.LENGTH_SHORT).show();
                 }
-
-
             }
         });
 

@@ -23,7 +23,8 @@ import info.hoang8f.widget.FButton;
 public class SetupTimerActivity extends AppCompatActivity {
 
     final private int maxHour = 5;
-    final private int maxMin = 59;
+    final private int maxMin = 1;
+    final private int timesMin = 30;
     private Context mContext;
     private NumberPicker hourPicker;
     private NumberPicker minPicker;
@@ -79,6 +80,9 @@ public class SetupTimerActivity extends AppCompatActivity {
                 changeTimeNotice(hourPicked, minPicked);
             }
         });
+        String[] stringArray = new String[2];
+        stringArray[0] = "00";
+        stringArray[1] = "30";
         minPicker.setOnValueChangedListener(new NumberPicker.OnValueChangeListener() {
             @Override
             public void onValueChange(NumberPicker picker, int oldVal, int newVal) {
@@ -86,6 +90,7 @@ public class SetupTimerActivity extends AppCompatActivity {
                 changeTimeNotice(hourPicked, minPicked);
             }
         });
+        minPicker.setDisplayedValues(stringArray);
 
         // setup text coin
         sh = new ScoreHandler(mContext);
@@ -100,7 +105,7 @@ public class SetupTimerActivity extends AppCompatActivity {
                 if (canGo) {
                     Intent intent = new Intent(mContext, WatcherActivity.class);
                     intent.putExtra("hourPicked", hourPicked);
-                    intent.putExtra("minPicked", minPicked);
+                    intent.putExtra("minPicked", minPicked * timesMin);
                     intent.putExtra("milliPicked", 60000 * (hourPicked * 60 + minPicked));
                     startActivity(intent);
                 } else {
@@ -165,11 +170,17 @@ public class SetupTimerActivity extends AppCompatActivity {
             } else if (hourPicked > 1) {
                 message += hourPicked + " " + mContext.getResources().getString(R.string.hours) + " ";
             }
-            if (minPicked == 1) {
-                message += minPicked + " " + mContext.getResources().getString(R.string.minute) + " ";
-            } else if (minPicked > 1) {
-                message += minPicked + " " + mContext.getResources().getString(R.string.minutes) + " ";
+            if (hourPicked > 0 && minPicked > 0) {
+                message += "\n";
             }
+            if (minPicked == 1) {
+                message += (minPicked * timesMin) + " " + mContext.getResources().getString(R.string.minute) + " ";
+            }
+//            if (minPicked == 1) {
+//                message += minPicked + " " + mContext.getResources().getString(R.string.minute) + " ";
+//            } else if (minPicked > 1) {
+//                message += minPicked + " " + mContext.getResources().getString(R.string.minutes) + " ";
+//            }
             message += mContext.getResources().getString(R.string.later);
 
             canGo = true;

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/image_card_count"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/giftcard_piece_1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/amazon1" />
+
+        <ImageView
+            android:id="@+id/giftcard_piece_2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/amazon2" />
+
+        <ImageView
+            android:id="@+id/giftcard_piece_3"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/amazon3" />
+
+        <ImageView
+            android:id="@+id/giftcard_piece_4"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/amazon4" />
+
+        <ImageView
+            android:id="@+id/giftcard_piece_5"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/amazon5" />
+
+        <ImageView
+            android:id="@+id/giftcard_piece_6"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/amazon6" />
+    </RelativeLayout>
+</LinearLayout>

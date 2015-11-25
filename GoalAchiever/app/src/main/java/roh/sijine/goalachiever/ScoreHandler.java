@@ -32,7 +32,7 @@ public class ScoreHandler {
         giftcards.add(new GiftCard(0, "Target", preferences.getInt("GC2", 0)));
         giftcards.add(new GiftCard(0, "BestBuy", preferences.getInt("GC3", 0)));
         giftcards.add(new GiftCard(0, "Walmart", preferences.getInt("GC4", 0)));
-        giftcards.add(new GiftCard(0, "Newegg", preferences.getInt("GC5", 0)));
+        giftcards.add(new GiftCard(0, "Apple", preferences.getInt("GC5", 0)));
 
         String temp = "";
         for (int i = 0; i < giftcards.size(); i++) {

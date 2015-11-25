@@ -2,6 +2,7 @@
 <resources>
     <dimen name="time_divider_side_margin">3dp</dimen>
     <dimen name="time_notice_top_margin">16dp</dimen>
+    <dimen name="time_notice_hieght">100dp</dimen>
     <dimen name="roulette_colleciton_margin">16dp</dimen>
     <dimen name="coin_text_margin">8dp</dimen>
     <dimen name="coin_text_height">40dp</dimen>

@@ -13,13 +13,7 @@
         android:orientation="vertical">
 
         <!-- Put everything in here -->
-        <ImageView
-        android:id="@+id/roulette"
-        android:layout_width="300dp"
-        android:layout_height="300dp"
-        android:layout_gravity= "center_horizontal"
-            android:layout_marginTop="60dp"
-        />
+
 
     </LinearLayout>
 
