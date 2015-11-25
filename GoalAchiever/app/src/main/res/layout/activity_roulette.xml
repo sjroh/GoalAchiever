@@ -3,39 +3,123 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFFFFF"
     tools:context="roh.sijine.goalachiever.RouletteActivity">
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#FFFFFF"
+        android:layout_alignParentBottom="false"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="false"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="100dp"
         android:orientation="vertical">
 
         <!-- Put everything in here -->
 
+        <ImageView
+            android:id="@+id/image_box_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="false"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="false"
+            android:src="@drawable/box_back" />
 
-    </LinearLayout>
+        <!-- giftcard reward -->
+        <LinearLayout
+            android:id="@+id/layout_reward_giftcard"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/image_box_back"
+            android:layout_marginBottom="42dp"
+            android:gravity="center_horizontal"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/image_reward_giftcard"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:src="@drawable/amazon4" />
+        </LinearLayout>
+
+        <!-- coin reward -->
+        <LinearLayout
+            android:id="@+id/layout_reward_coin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/image_box_back"
+            android:layout_marginBottom="16dp"
+            android:gravity="center_horizontal"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:src="@drawable/ic_coin" />
+
+            <TextView
+                android:id="@+id/text_reward_coin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_margin="@dimen/coin_text_margin"
+                android:text="@string/coin_preset"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textColor="#000000"
+                android:textSize="@dimen/coin_text_size" />
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/image_box_front"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/image_box_back"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="false"
+            android:src="@drawable/box_front" />
+
+        <ImageView
+            android:id="@+id/image_box_closed"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/image_box_back"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="false"
+            android:src="@drawable/box_front" />
+
+    </RelativeLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentLeft="false"
+        android:layout_alignParentRight="false"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="false"
         android:layout_weight="4"
         android:gravity="center"
         android:orientation="horizontal">
 
         <info.hoang8f.widget.FButton
             android:id="@+id/btn_spin"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="100dp"
+            android:layout_height="48dp"
             android:layout_gravity="center"
             android:layout_marginLeft="@dimen/roulette_colleciton_margin"
             android:layout_marginRight="@dimen/roulette_colleciton_margin"
             android:layout_marginTop="170dp"
+            android:drawableLeft="@drawable/ic_coin"
             android:gravity="center"
             android:paddingLeft="@dimen/button_padding_horizontal"
             android:paddingRight="@dimen/button_padding_horizontal"
-            android:text="Spin"
+            android:text="100"
             android:textColor="@android:color/white"
             fbutton:buttonColor="@color/fbutton_color_turquoise"
             fbutton:cornerRadius="5dp"

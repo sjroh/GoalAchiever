@@ -5,26 +5,39 @@ import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.animation.Animation;
-import android.view.animation.RotateAnimation;
+import android.view.animation.BounceInterpolator;
+import android.view.animation.TranslateAnimation;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+
+import java.util.Random;
 
 import info.hoang8f.widget.FButton;
 
 public class RouletteActivity extends AppCompatActivity {
 
-    private static final float rotate_from = 0.0f;
-    private static final float rotate_to = -10.0f * 360.0f;
+    final static int price = 100;
+
     private Context mContext;
     private ScoreHandler sh;
     private TextView textCoin;
-    private ImageView roulette;
     private FButton btnSpin;
+    private ImageView boxFront;
+    private ImageView boxBack;
+    private ImageView boxClosed;
+
+    private LinearLayout rewardCoin;
+    private LinearLayout rewardGiftcard;
+    private TextView rewardTextCoin;
+    private ImageView rewardImageGiftcard;
+
     /*  README
     *       READ ScoreHandler
     *       You can add coins by using sh.addCoin(int)
@@ -58,21 +71,175 @@ public class RouletteActivity extends AppCompatActivity {
         textCoin = (TextView) findViewById(R.id.text_coin);
         textCoin.setText(String.valueOf(sh.getCoin()));
 
-        // should change to spin wheel
-//        roulette = (ImageView) findViewById(R.id.roulette);
-//        roulette.setImageResource(R.drawable.roulette);
+        // rewards
+        rewardCoin = (LinearLayout) findViewById(R.id.layout_reward_coin);
+        rewardGiftcard = (LinearLayout) findViewById(R.id.layout_reward_giftcard);
+        rewardTextCoin = (TextView) findViewById(R.id.text_reward_coin);
+        rewardImageGiftcard = (ImageView) findViewById(R.id.image_reward_giftcard);
+        rewardCoin.setVisibility(View.INVISIBLE);
+        rewardGiftcard.setVisibility(View.INVISIBLE);
+
+        // box
+        boxFront = (ImageView) findViewById(R.id.image_box_front);
+        boxBack = (ImageView) findViewById(R.id.image_box_back);
+        boxClosed = (ImageView) findViewById(R.id.image_box_closed);
+
+        boxFront.setVisibility(View.INVISIBLE);
+        boxBack.setVisibility(View.INVISIBLE);
 
         btnSpin = (FButton) findViewById(R.id.btn_spin);
         btnSpin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                RotateAnimation r;
-                r = new RotateAnimation(rotate_from, rotate_to, Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF, 0.5f);
-                r.setDuration((long) 2*1500);
-                r.setRepeatCount(0);
-                roulette.startAnimation(r);
+                resetRewardPosition();
+
+                sh.removeCoin(price);
+                textCoin.setText(String.valueOf(sh.getCoin()));
+
+                startAnimation();
             }
         });
+
     }
 
+
+    private void resetRewardPosition() {
+        boxFront.setVisibility(View.INVISIBLE);
+        boxBack.setVisibility(View.INVISIBLE);
+        rewardCoin.setVisibility(View.INVISIBLE);
+        rewardGiftcard.setVisibility(View.INVISIBLE);
+        rewardCoin.clearAnimation();
+        rewardGiftcard.clearAnimation();
+    }
+
+    private void startAnimation() {
+        TranslateAnimation translation;
+        translation = new TranslateAnimation(0f, 0f, -100f, 0f);
+        translation.setStartOffset(500);
+        translation.setDuration(2000);
+        translation.setFillAfter(true);
+        translation.setFillEnabled(true);
+        translation.setInterpolator(new BounceInterpolator());
+        translation.setAnimationListener(new Animation.AnimationListener() {
+            @Override
+            public void onAnimationStart(Animation animation) {
+                btnSpin.setVisibility(View.INVISIBLE);
+                rewardCoin.setVisibility(View.INVISIBLE);
+                rewardGiftcard.setVisibility(View.INVISIBLE);
+            }
+
+            @Override
+            public void onAnimationRepeat(Animation animation) {
+                // TODO Auto-generated method stub
+            }
+
+            @Override
+            public void onAnimationEnd(Animation animation) {
+                boxClosed.setVisibility(View.INVISIBLE);
+                boxFront.setVisibility(View.VISIBLE);
+                boxBack.setVisibility(View.VISIBLE);
+
+                rewardGenerator();
+            }
+        });
+        boxClosed.startAnimation(translation);
+    }
+
+    private void rewardGenerator() {
+        final int max = 100;
+
+        int[][] rewardArray = new int[2][7];
+        rewardArray[0][0] = 3;  // 0 coin
+        rewardArray[1][0] = 0;
+        rewardArray[0][1] = 40; // 100 coins
+        rewardArray[1][1] = 100;
+        rewardArray[0][2] = 30; // 200 coins
+        rewardArray[1][2] = 200;
+        rewardArray[0][3] = 15; // 500 coins
+        rewardArray[1][3] = 500;
+        rewardArray[0][4] = 5;  // 1000 coins
+        rewardArray[1][4] = 1000;
+        rewardArray[0][5] = 2;  // 2000 coins
+        rewardArray[1][5] = 2000;
+        rewardArray[0][6] = 5;  // 1 piece of giftcard
+        rewardArray[1][6] = -1;
+
+        int[] reward = new int[max];
+        int n = 0;
+        for (int i = 0; i < 7; i++) {
+            for (int j = 0; j < rewardArray[0][i]; j++) {
+                reward[n] = rewardArray[1][i];
+                n++;
+            }
+        }
+
+        Random randomGenerator = new Random();
+        int randomInt = randomGenerator.nextInt(max);
+        int result = reward[randomInt];
+
+        Log.d("[ROULETTE_ACTIVITY]", "### reward = " + result);
+
+        if (result > 0) {
+            // coin reward
+            rewardCoin.setVisibility(View.VISIBLE);
+            rewardTextCoin.setText(String.valueOf(result));
+            TranslateAnimation translation;
+            translation = new TranslateAnimation(0f, 0f, 0f, -200f);
+            translation.setStartOffset(0);
+            translation.setDuration(1000);
+            translation.setFillAfter(true);
+            translation.setFillEnabled(true);
+//            translation.setInterpolator(new BounceInterpolator());
+            translation.setAnimationListener(new Animation.AnimationListener() {
+                @Override
+                public void onAnimationStart(Animation animation) {
+
+                }
+
+                @Override
+                public void onAnimationRepeat(Animation animation) {
+                }
+
+                @Override
+                public void onAnimationEnd(Animation animation) {
+                    btnSpin.setVisibility(View.VISIBLE);
+                }
+            });
+            sh.addCoin(result);
+            rewardCoin.startAnimation(translation);
+        } else {
+            // giftcard reward
+            rewardGiftcard.setVisibility(View.VISIBLE);
+            int randomCard = randomGenerator.nextInt(sh.getGiftCardList().size());
+            while (!sh.isGiftCardFull(randomCard)) {
+                randomCard = randomGenerator.nextInt(sh.getGiftCardList().size());
+            }
+            rewardImageGiftcard.setImageResource(sh.pieceList[randomCard][sh.getGiftCardList().get(randomCard).getCount()]);
+            Log.d("[ROULETTE_ACTIVITY]", "### randomCard = " + randomCard + "; getCount = " + sh.getGiftCardList().get(randomCard).getCount());
+            sh.addGiftCardPiece(randomCard);
+            TranslateAnimation translation;
+            translation = new TranslateAnimation(0f, 0f, 0f, -200f);
+            translation.setStartOffset(0);
+            translation.setDuration(1000);
+            translation.setFillAfter(true);
+            translation.setFillEnabled(true);
+//            translation.setInterpolator(new BounceInterpolator());
+            translation.setAnimationListener(new Animation.AnimationListener() {
+                @Override
+                public void onAnimationStart(Animation animation) {
+
+                }
+
+                @Override
+                public void onAnimationRepeat(Animation animation) {
+                }
+
+                @Override
+                public void onAnimationEnd(Animation animation) {
+                    btnSpin.setVisibility(View.VISIBLE);
+                }
+            });
+            rewardGiftcard.startAnimation(translation);
+        }
+    }
 }

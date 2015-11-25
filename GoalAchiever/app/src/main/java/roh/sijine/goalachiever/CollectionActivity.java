@@ -71,7 +71,7 @@ public class CollectionActivity extends AppCompatActivity implements
         btnBuyPiece.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                sh.addCoin(1001);
+//                sh.addCoin(1001);
                 if (sh.isGiftCardFull()) {
                     Toast.makeText(v.getContext(), "FULL COLLECTION!! YAY!!", Toast.LENGTH_SHORT).show();
                 } else if (sh.getCoin() > 1000) {
