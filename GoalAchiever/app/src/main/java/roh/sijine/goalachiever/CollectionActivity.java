@@ -47,7 +47,8 @@ public class CollectionActivity extends AppCompatActivity implements
 //        if (actionBar != null) {
 //            actionBar.hide();
 //        }
-        actionBar.setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.fbutton_color_midnight_blue)));
+//        actionBar.setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.fbutton_color_midnight_blue)));
+        actionBar.setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.actionbar_blue)));
         actionBar.setDisplayShowHomeEnabled(false);
         actionBar.setDisplayShowTitleEnabled(false);
         LayoutInflater inflator = LayoutInflater.from(this);

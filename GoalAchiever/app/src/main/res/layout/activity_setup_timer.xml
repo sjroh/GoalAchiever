@@ -3,14 +3,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFFFFF"
+    android:background="@color/bg_blue"
     tools:context="roh.sijine.goalachiever.SetupTimerActivity">
 
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/fbutton_color_peter_river"
         android:orientation="vertical"
         android:weightSum="10">
 
@@ -38,7 +37,7 @@
                     android:layout_height="wrap_content"
                     android:text="   "
                     android:textAppearance="?android:attr/textAppearanceLarge"
-                    android:textColor="@color/white"
+                    android:textColor="@color/text_white"
                     android:textSize="40sp"
                     android:textStyle="bold" />
             </LinearLayout>
@@ -58,11 +57,16 @@
                     android:gravity="center"
                     android:orientation="horizontal">
 
-                    <NumberPicker
+                    <roh.sijine.goalachiever.CustomNumberPicker
                         android:id="@+id/hour_picker"
+                        style="@style/GANumberPicker"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="center" />
+                        android:layout_gravity="center"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:textColor="@color/text_white"
+                        android:textSize="28dp"
+                        android:textStyle="bold" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -71,13 +75,18 @@
                         android:layout_marginLeft="@dimen/time_divider_side_margin"
                         android:gravity="center"
                         android:text="@string/time_divider"
-                        android:textAppearance="?android:attr/textAppearanceMedium" />
+                        android:textColor="@color/text_white"
+                        android:textColorLink="@color/text_white"
+                        android:textSize="28dp"
+                        android:textStyle="bold" />
 
-                    <NumberPicker
+                    <roh.sijine.goalachiever.CustomNumberPicker
                         android:id="@+id/min_picker"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="center" />
+                        android:layout_gravity="center"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:textColorPrimary="@color/text_white" />
                 </LinearLayout>
             </LinearLayout>
 
@@ -114,9 +123,9 @@
                     android:paddingRight="@dimen/button_padding_horizontal"
                     android:text="@string/btn_start"
                     android:textColor="@android:color/white"
-                    fbutton:buttonColor="@color/fbutton_color_belize_hole"
+                    fbutton:buttonColor="@color/button_blue"
                     fbutton:cornerRadius="2dp"
-                    fbutton:shadowColor="@color/fbutton_color_midnight_blue"
+                    fbutton:shadowColor="@color/actionbar_blue"
                     fbutton:shadowEnabled="true"
                     fbutton:shadowHeight="2dp" />
             </LinearLayout>
@@ -142,9 +151,9 @@
                     android:paddingRight="@dimen/button_padding_horizontal"
                     android:text="@string/btn_roulette"
                     android:textColor="@android:color/white"
-                    fbutton:buttonColor="@color/fbutton_color_belize_hole"
+                    fbutton:buttonColor="@color/button_blue"
                     fbutton:cornerRadius="2dp"
-                    fbutton:shadowColor="@color/fbutton_color_midnight_blue"
+                    fbutton:shadowColor="@color/actionbar_blue"
                     fbutton:shadowEnabled="true"
                     fbutton:shadowHeight="2dp" />
             </LinearLayout>
@@ -169,9 +178,9 @@
                     android:paddingRight="@dimen/button_padding_horizontal"
                     android:text="@string/btn_collection"
                     android:textColor="@android:color/white"
-                    fbutton:buttonColor="@color/fbutton_color_belize_hole"
+                    fbutton:buttonColor="@color/button_blue"
                     fbutton:cornerRadius="2dp"
-                    fbutton:shadowColor="@color/fbutton_color_midnight_blue"
+                    fbutton:shadowColor="@color/actionbar_blue"
                     fbutton:shadowEnabled="true"
                     fbutton:shadowHeight="2dp" />
             </LinearLayout>

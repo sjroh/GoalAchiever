@@ -29,9 +29,9 @@ public class RouletteActivity extends AppCompatActivity {
     private ScoreHandler sh;
     private TextView textCoin;
     private FButton btnSpin;
-    private ImageView boxFront;
+    //    private ImageView boxFront;
     private ImageView boxBack;
-    private ImageView boxClosed;
+    private ImageView boxFront;
 
     private LinearLayout rewardCoin;
     private LinearLayout rewardGiftcard;
@@ -57,7 +57,8 @@ public class RouletteActivity extends AppCompatActivity {
 //        if (actionBar != null) {
 //            actionBar.hide();
 //        }
-        actionBar.setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.fbutton_color_midnight_blue)));
+//        actionBar.setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.fbutton_color_midnight_blue)));
+        actionBar.setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.actionbar_blue)));
         actionBar.setDisplayShowHomeEnabled(false);
         actionBar.setDisplayShowTitleEnabled(false);
         LayoutInflater inflator = LayoutInflater.from(this);
@@ -80,11 +81,9 @@ public class RouletteActivity extends AppCompatActivity {
         rewardGiftcard.setVisibility(View.INVISIBLE);
 
         // box
-        boxFront = (ImageView) findViewById(R.id.image_box_front);
         boxBack = (ImageView) findViewById(R.id.image_box_back);
-        boxClosed = (ImageView) findViewById(R.id.image_box_closed);
+        boxFront = (ImageView) findViewById(R.id.image_box_front);
 
-        boxFront.setVisibility(View.INVISIBLE);
         boxBack.setVisibility(View.INVISIBLE);
 
         btnSpin = (FButton) findViewById(R.id.btn_spin);
@@ -92,19 +91,16 @@ public class RouletteActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 resetRewardPosition();
-
                 sh.removeCoin(price);
                 textCoin.setText(String.valueOf(sh.getCoin()));
-
                 startAnimation();
             }
         });
-
     }
 
-
     private void resetRewardPosition() {
-        boxFront.setVisibility(View.INVISIBLE);
+        boxFront.setImageDrawable(getResources().getDrawable(R.drawable.box_closed));
+        boxFront.setVisibility(View.VISIBLE);
         boxBack.setVisibility(View.INVISIBLE);
         rewardCoin.setVisibility(View.INVISIBLE);
         rewardGiftcard.setVisibility(View.INVISIBLE);
@@ -135,14 +131,12 @@ public class RouletteActivity extends AppCompatActivity {
 
             @Override
             public void onAnimationEnd(Animation animation) {
-                boxClosed.setVisibility(View.INVISIBLE);
-                boxFront.setVisibility(View.VISIBLE);
                 boxBack.setVisibility(View.VISIBLE);
-
+                boxFront.setImageDrawable(getResources().getDrawable(R.drawable.box_front));
                 rewardGenerator();
             }
         });
-        boxClosed.startAnimation(translation);
+        boxFront.startAnimation(translation);
     }
 
     private void rewardGenerator() {
@@ -184,7 +178,7 @@ public class RouletteActivity extends AppCompatActivity {
             rewardCoin.setVisibility(View.VISIBLE);
             rewardTextCoin.setText(String.valueOf(result));
             TranslateAnimation translation;
-            translation = new TranslateAnimation(0f, 0f, 0f, -200f);
+            translation = new TranslateAnimation(0f, 0f, 0f, -500f);
             translation.setStartOffset(0);
             translation.setDuration(1000);
             translation.setFillAfter(true);
@@ -193,7 +187,6 @@ public class RouletteActivity extends AppCompatActivity {
             translation.setAnimationListener(new Animation.AnimationListener() {
                 @Override
                 public void onAnimationStart(Animation animation) {
-
                 }
 
                 @Override
@@ -206,6 +199,7 @@ public class RouletteActivity extends AppCompatActivity {
                 }
             });
             sh.addCoin(result);
+            textCoin.setText(String.valueOf(sh.getCoin()));
             rewardCoin.startAnimation(translation);
         } else {
             // giftcard reward
@@ -218,7 +212,7 @@ public class RouletteActivity extends AppCompatActivity {
             Log.d("[ROULETTE_ACTIVITY]", "### randomCard = " + randomCard + "; getCount = " + sh.getGiftCardList().get(randomCard).getCount());
             sh.addGiftCardPiece(randomCard);
             TranslateAnimation translation;
-            translation = new TranslateAnimation(0f, 0f, 0f, -200f);
+            translation = new TranslateAnimation(0f, 0f, 0f, -450f);
             translation.setStartOffset(0);
             translation.setDuration(1000);
             translation.setFillAfter(true);
@@ -227,7 +221,6 @@ public class RouletteActivity extends AppCompatActivity {
             translation.setAnimationListener(new Animation.AnimationListener() {
                 @Override
                 public void onAnimationStart(Animation animation) {
-
                 }
 
                 @Override

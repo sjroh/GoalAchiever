@@ -6,6 +6,11 @@
     <color name="white">#ffffff</color>
     <color name="black_overlay">#66000000</color>
 
+    <color name="text_white">#FDFDFD</color>
+    <color name="bg_blue">#53B0E6</color>
+    <color name="button_blue">#2B76AB</color>
+    <color name="actionbar_blue">#293D56</color>
+
     //Color Swatches provided by http://designmodo.github.io/Flat-UI/
     <color name="fbutton_color_turquoise">#1abc9c</color>
     <color name="fbutton_color_green_sea">#16a085</color>

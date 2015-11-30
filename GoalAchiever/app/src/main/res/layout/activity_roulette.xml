@@ -3,16 +3,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/bg_blue"
     tools:context="roh.sijine.goalachiever.RouletteActivity">
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_alignParentBottom="false"
-        android:layout_alignParentLeft="true"
+        android:layout_alignParentLeft="false"
         android:layout_alignParentRight="false"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="100dp"
+        android:layout_alignParentTop="false"
         android:orientation="vertical">
 
         <!-- Put everything in here -->
@@ -24,16 +24,18 @@
             android:layout_alignParentBottom="false"
             android:layout_alignParentLeft="true"
             android:layout_alignParentRight="true"
-            android:layout_alignParentTop="false"
+            android:layout_centerVertical="true"
             android:src="@drawable/box_back" />
 
         <!-- giftcard reward -->
         <LinearLayout
             android:id="@+id/layout_reward_giftcard"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignBottom="@+id/image_box_back"
+            android:layout_centerHorizontal="true"
             android:layout_marginBottom="42dp"
+            android:background="@drawable/bg_reward"
             android:gravity="center_horizontal"
             android:orientation="horizontal">
 
@@ -48,10 +50,14 @@
         <!-- coin reward -->
         <LinearLayout
             android:id="@+id/layout_reward_coin"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignBottom="@+id/image_box_back"
-            android:layout_marginBottom="16dp"
+            android:layout_alignParentLeft="false"
+            android:layout_alignParentRight="false"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="30dp"
+            android:background="@drawable/bg_reward"
             android:gravity="center_horizontal"
             android:orientation="horizontal">
 
@@ -59,18 +65,20 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
+                android:layout_marginLeft="5dp"
                 android:src="@drawable/ic_coin" />
 
             <TextView
                 android:id="@+id/text_reward_coin"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
+                android:layout_gravity="center_vertical|right"
                 android:layout_margin="@dimen/coin_text_margin"
                 android:text="@string/coin_preset"
                 android:textAppearance="?android:attr/textAppearanceLarge"
-                android:textColor="#000000"
-                android:textSize="@dimen/coin_text_size" />
+                android:textColor="@color/actionbar_blue"
+                android:textSize="@dimen/coin_text_size"
+                android:textStyle="bold" />
         </LinearLayout>
 
         <ImageView
@@ -80,18 +88,7 @@
             android:layout_alignBottom="@+id/image_box_back"
             android:layout_alignParentLeft="true"
             android:layout_alignParentRight="true"
-            android:layout_alignParentTop="false"
-            android:src="@drawable/box_front" />
-
-        <ImageView
-            android:id="@+id/image_box_closed"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignBottom="@+id/image_box_back"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentTop="false"
-            android:src="@drawable/box_front" />
+            android:src="@drawable/box_closed" />
 
     </RelativeLayout>
 

@@ -27,7 +27,8 @@
             android:layout_gravity="left|center_vertical"
             android:layout_marginLeft="@dimen/giftcard_row_margin"
             android:text="CARD_NAME"
-            android:textAppearance="?android:attr/textAppearanceLarge" />
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="@color/text_white" />
     </LinearLayout>
 
     <LinearLayout
@@ -58,9 +59,8 @@
             android:layout_marginRight="@dimen/giftcard_row_margin"
             android:drawableLeft="@drawable/ic_cart"
             android:gravity="center"
-            android:paddingLeft="@dimen/button_padding_horizontal"
-            android:paddingRight="@dimen/button_padding_horizontal"
-            android:text="Buy"
+            android:paddingLeft="6dp"
+            android:text=""
             android:textColor="@android:color/white"
             fbutton:buttonColor="@color/fbutton_color_peter_river"
             fbutton:cornerRadius="5dp"

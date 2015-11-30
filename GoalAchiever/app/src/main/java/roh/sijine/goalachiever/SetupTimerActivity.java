@@ -2,6 +2,7 @@ package roh.sijine.goalachiever;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.res.Resources;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.v7.app.ActionBar;
@@ -19,6 +20,8 @@ import java.util.Calendar;
 
 import info.hoang8f.widget.FButton;
 
+//import android.widget.NumberPicker;
+
 
 public class SetupTimerActivity extends AppCompatActivity {
 
@@ -26,8 +29,8 @@ public class SetupTimerActivity extends AppCompatActivity {
     final private int maxMin = 1;
     final private int timesMin = 30;
     private Context mContext;
-    private NumberPicker hourPicker;
-    private NumberPicker minPicker;
+    private CustomNumberPicker hourPicker;
+    private CustomNumberPicker minPicker;
     private int hourPicked;
     private int minPicked;
 
@@ -55,7 +58,8 @@ public class SetupTimerActivity extends AppCompatActivity {
 //        if (actionBar != null) {
 //            actionBar.hide();
 //        }
-        actionBar.setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.fbutton_color_midnight_blue)));
+//        actionBar.setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.fbutton_color_midnight_blue)));
+        actionBar.setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.actionbar_blue)));
         actionBar.setDisplayShowHomeEnabled(false);
         actionBar.setDisplayShowTitleEnabled(false);
         LayoutInflater inflator = LayoutInflater.from(this);
@@ -67,28 +71,42 @@ public class SetupTimerActivity extends AppCompatActivity {
 
         // setup number pickers
         timeNotice = (TextView) findViewById(R.id.text_time_notice);
-        hourPicker = (NumberPicker) findViewById(R.id.hour_picker);
-        minPicker = (NumberPicker) findViewById(R.id.min_picker);
+        hourPicker = (CustomNumberPicker) findViewById(R.id.hour_picker);
+        minPicker = (CustomNumberPicker) findViewById(R.id.min_picker);
 
         hourPicker.setMaxValue(maxHour);
+        setDividerColor(hourPicker, getResources().getColor(R.color.text_white));
         minPicker.setMaxValue(maxMin);
+        setDividerColor(minPicker, getResources().getColor(R.color.text_white));
 
-        hourPicker.setOnValueChangedListener(new NumberPicker.OnValueChangeListener() {
+        hourPicker.setOnValueChangedListener(new CustomNumberPicker.OnValueChangeListener() {
             @Override
-            public void onValueChange(NumberPicker picker, int oldVal, int newVal) {
+            public void onValueChange(android.widget.NumberPicker picker, int oldVal, int newVal) {
                 hourPicked = newVal;
                 changeTimeNotice(hourPicked, minPicked);
             }
+
+//            @Override
+//            public void onValueChange(NumberPicker picker, int oldVal, int newVal) {
+//                hourPicked = newVal;
+//                changeTimeNotice(hourPicked, minPicked);
+//            }
         });
         String[] stringArray = new String[2];
         stringArray[0] = "00";
         stringArray[1] = "30";
-        minPicker.setOnValueChangedListener(new NumberPicker.OnValueChangeListener() {
+        minPicker.setOnValueChangedListener(new CustomNumberPicker.OnValueChangeListener() {
             @Override
-            public void onValueChange(NumberPicker picker, int oldVal, int newVal) {
+            public void onValueChange(android.widget.NumberPicker picker, int oldVal, int newVal) {
                 minPicked = newVal;
                 changeTimeNotice(hourPicked, minPicked);
             }
+
+//            @Override
+//            public void onValueChange(NumberPicker picker, int oldVal, int newVal) {
+//                minPicked = newVal;
+//                changeTimeNotice(hourPicked, minPicked);
+//            }
         });
         minPicker.setDisplayedValues(stringArray);
 
@@ -187,5 +205,27 @@ public class SetupTimerActivity extends AppCompatActivity {
         }
         timeNotice.setText(message);
     }
+
+    private void setDividerColor(CustomNumberPicker picker, int color) {
+        java.lang.reflect.Field[] pickerFields = NumberPicker.class.getDeclaredFields();
+        for (java.lang.reflect.Field pf : pickerFields) {
+            if (pf.getName().equals("mSelectionDivider")) {
+                pf.setAccessible(true);
+                try {
+                    ColorDrawable colorDrawable = new ColorDrawable(color);
+                    pf.set(picker, colorDrawable);
+                } catch (IllegalArgumentException e) {
+                    e.printStackTrace();
+                } catch (Resources.NotFoundException e) {
+                    e.printStackTrace();
+                } catch (IllegalAccessException e) {
+                    e.printStackTrace();
+                }
+                break;
+            }
+        }
+    }
+
+
 
 }
