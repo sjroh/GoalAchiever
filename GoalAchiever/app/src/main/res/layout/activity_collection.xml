@@ -21,6 +21,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="@dimen/giftcard_row_margin"
+            android:layout_marginTop="@dimen/giftcard_row_margin"
             android:gravity="center"
             android:orientation="horizontal">
 
@@ -29,7 +30,8 @@
                 android:layout_height="wrap_content"
                 android:text="Random Gift Card piece = "
                 android:textAppearance="?android:attr/textAppearanceMedium"
-                android:textColor="@color/text_white" />
+                android:textColor="@color/text_white"
+                android:textStyle="bold" />
 
             <ImageView
                 android:layout_width="@dimen/coin_text_size"
@@ -41,14 +43,16 @@
                 android:layout_height="wrap_content"
                 android:text=" 1,000"
                 android:textAppearance="?android:attr/textAppearanceMedium"
-                android:textColor="@color/text_white" />
+                android:textColor="@color/text_white"
+                android:textStyle="bold" />
         </LinearLayout>
 
         <info.hoang8f.widget.FButton
             android:id="@+id/btn_buy_piece"
-            android:layout_width="wrap_content"
+            android:layout_width="@dimen/button_width"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
+            android:layout_marginTop="@dimen/giftcard_row_margin"
             android:gravity="center"
             android:paddingLeft="@dimen/button_padding_horizontal"
             android:paddingRight="@dimen/button_padding_horizontal"

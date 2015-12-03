@@ -8,7 +8,7 @@ import android.util.Log;
 
 public class HomeWatcher {
 
-    static final String TAG = "hg";
+    static final String TAG = "[HOME_WATCHER]";
     private Context mContext;
     private IntentFilter mFilter;
     private OnHomePressedListener mListener;
@@ -48,7 +48,7 @@ public class HomeWatcher {
             if (action.equals(Intent.ACTION_CLOSE_SYSTEM_DIALOGS)) {
                 String reason = intent.getStringExtra(SYSTEM_DIALOG_REASON_KEY);
                 if (reason != null) {
-                    Log.e(TAG, "action:" + action + ",reason:" + reason);
+                    Log.e(TAG, "### action:" + action + ",reason:" + reason);
                     if (mListener != null) {
                         if (reason.equals(SYSTEM_DIALOG_REASON_HOME_KEY)) {
                             mListener.onHomePressed();
@@ -57,6 +57,9 @@ public class HomeWatcher {
                         }
                     }
                 }
+            } else if (action.equals(Intent.ACTION_SHUTDOWN)) {
+                String reason = intent.getStringExtra(SYSTEM_DIALOG_REASON_KEY);
+                Log.e(TAG, "### action:" + action + ",reason:" + reason);
             }
         }
     }

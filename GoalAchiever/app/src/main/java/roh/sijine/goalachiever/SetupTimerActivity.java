@@ -7,6 +7,7 @@ import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -165,6 +166,8 @@ public class SetupTimerActivity extends AppCompatActivity {
         hourPicked = 0;
         minPicked = 0;
         timeNotice.setText(mContext.getResources().getString(R.string.no_input_timer));
+        canGo = false;
+        Log.d("[SETUP_TIMER_ACTIVITY]", "### onResume");
     }
 
     private void changeTimeNotice(int hour, int min) {

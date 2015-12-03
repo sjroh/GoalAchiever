@@ -16,33 +16,47 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="4"
+            android:layout_height="wrap_content"
+            android:layout_weight="8"
+            android:gravity="center"
             android:orientation="vertical">
 
             <TextView
                 android:id="@+id/fullscreen_content"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:gravity="center"
                 android:keepScreenOn="true"
                 android:text="@string/watcher_preset"
                 android:textColor="#33b5e5"
                 android:textSize="50sp"
                 android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/text_countdown"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="16dp"
+                android:text="Medium Text"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="#33b5e5"
+                android:textSize="30sp"
+                android:textStyle="bold" />
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="6"
-            android:gravity="center"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:gravity="bottom|center_horizontal"
             android:orientation="vertical">
             <info.hoang8f.widget.FButton
                 android:id="@+id/btn_stop"
-                android:layout_width="wrap_content"
+                android:layout_width="@dimen/button_width"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
+                android:layout_marginBottom="@dimen/button_bottom_margin"
                 android:gravity="center"
                 android:paddingLeft="@dimen/button_padding_horizontal"
                 android:paddingRight="@dimen/button_padding_horizontal"
@@ -52,8 +66,7 @@
                 fbutton:cornerRadius="5dp"
                 fbutton:shadowColor="@color/fbutton_color_pomegranate"
                 fbutton:shadowEnabled="true"
-                fbutton:shadowHeight="5dp"
-                />
+                fbutton:shadowHeight="5dp" />
 
         </LinearLayout>
     </LinearLayout>

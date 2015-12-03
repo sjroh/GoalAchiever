@@ -28,7 +28,8 @@
             android:layout_marginLeft="@dimen/giftcard_row_margin"
             android:text="CARD_NAME"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:textColor="@color/text_white" />
+            android:textColor="@color/text_white"
+            android:textStyle="bold" />
     </LinearLayout>
 
     <LinearLayout

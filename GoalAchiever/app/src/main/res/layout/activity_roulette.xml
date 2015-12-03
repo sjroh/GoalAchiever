@@ -106,8 +106,8 @@
 
         <info.hoang8f.widget.FButton
             android:id="@+id/btn_spin"
-            android:layout_width="100dp"
-            android:layout_height="48dp"
+            android:layout_width="@dimen/button_width"
+            android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginLeft="@dimen/roulette_colleciton_margin"
             android:layout_marginRight="@dimen/roulette_colleciton_margin"

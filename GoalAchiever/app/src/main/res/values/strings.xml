@@ -23,6 +23,7 @@
     <string name="btn_buy">BUY</string>
     <string name="btn_ok">OK</string>
     <string name="btn_cancel">CANCEL</string>
+    <string name="btn_replay">REPLAY</string>
 
     <string name="title_activity_watcher">WatcherActivity</string>
     <string name="watcher_preset">Lock\nYour\nPhone</string>
@@ -34,9 +35,14 @@
 
     <string name="title_activity_result">ResultActivity</string>
 
-    <string name="result_fail">You failed to focus...</string>
-    <string name="result_succeed">Great!!</string>
-    <string name="result_stop">Comeback next time..</string>
+    <string name="result_fail_1">Uh..oh...</string>
+    <string name="result_fail_2">You can do better next time</string>
+    <string name="result_fail_3">Come back next time</string>
+    <string name="result_fail_4">It was close</string>
+    <string name="result_succeed_1">Great!!</string>
+    <string name="result_succeed_2">Nice Work!!</string>
+    <string name="result_succeed_3">Well Done!!</string>
+    <string name="result_stop">Comeback next time</string>
 
     <string name="title_activity_roulette">RouletteActivity</string>
 
