@@ -25,7 +25,19 @@
             android:layout_margin="@dimen/coin_text_margin"
             android:text="@string/coin_preset"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:textColor="#FFFFFF"
+            android:textColor="@color/text_white"
             android:textSize="@dimen/coin_text_size" />
     </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="DEMO"
+        android:layout_marginLeft="16dp"
+        android:textSize="28dp"
+        android:textColor="@color/text_white"
+        android:textStyle="bold"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentBottom="true" />
 </RelativeLayout>

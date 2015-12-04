@@ -97,6 +97,13 @@ public class ScoreHandler {
         editor.commit();
     }
 
+    public void setCoin(int c) {
+        SharedPreferences.Editor editor = preferences.edit();
+        coin = c;
+        editor.putInt("COIN", coin);
+        editor.commit();
+    }
+
     public void removeCoin(int c) {
         SharedPreferences.Editor editor = preferences.edit();
         coin -= c;
@@ -153,6 +160,8 @@ public class ScoreHandler {
     public ArrayList<GiftCard> getGiftCardList() {
         return giftcards;
     }
+
+
 
     public void exchangeGiftCard(int i) { // i is a index number of giftcard
         if (i < MAXGIFTCARDS && i >= 0) {

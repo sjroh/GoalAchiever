@@ -4,27 +4,41 @@
     android:layout_height="wrap_content"
     android:orientation="vertical">
     <!-- Coin layout -->
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/coin_text_height"
-        android:layout_gravity="center"
-        android:gravity="center_vertical|right"
-        android:orientation="horizontal">
 
-        <ImageView
-            android:layout_width="@dimen/coin_text_size"
-            android:layout_height="@dimen/coin_text_size"
-            android:layout_gravity="center_vertical|right"
-            android:src="@drawable/coin" />
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/coin_text_height"
+            android:layout_gravity="center"
+            android:gravity="center_vertical|right"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="@dimen/coin_text_size"
+                android:layout_height="@dimen/coin_text_size"
+                android:layout_gravity="center_vertical|right"
+                android:src="@drawable/coin" />
+
+            <TextView
+                android:id="@+id/text_coin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical|right"
+                android:layout_margin="@dimen/coin_text_margin"
+                android:text="@string/coin_preset"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textSize="@dimen/coin_text_size" />
+        </LinearLayout>
 
         <TextView
-            android:id="@+id/text_coin"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical|right"
-            android:layout_margin="@dimen/coin_text_margin"
-            android:text="@string/coin_preset"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:textSize="@dimen/coin_text_size" />
-    </LinearLayout>
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="DEMO"
+            android:textColor="@color/text_white"
+            />
+    </RelativeLayout>
 </LinearLayout>

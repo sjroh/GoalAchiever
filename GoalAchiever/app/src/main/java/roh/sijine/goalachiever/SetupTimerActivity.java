@@ -47,6 +47,8 @@ public class SetupTimerActivity extends AppCompatActivity {
     private Calendar future;
     private ScoreHandler sh;
 
+    private int timeConstant = 60000;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -113,8 +115,11 @@ public class SetupTimerActivity extends AppCompatActivity {
 
         // setup text coin
         sh = new ScoreHandler(mContext);
+        sh.setCoin(20000);
         textCoin = (TextView) findViewById(R.id.text_coin);
         textCoin.setText(String.valueOf(sh.getCoin()));
+
+
 
         // setup buttons
         btnStart = (FButton) findViewById(R.id.btn_start);
@@ -125,7 +130,13 @@ public class SetupTimerActivity extends AppCompatActivity {
                     Intent intent = new Intent(mContext, WatcherActivity.class);
                     intent.putExtra("hourPicked", hourPicked);
                     intent.putExtra("minPicked", minPicked * timesMin);
-                    intent.putExtra("milliPicked", 60000 * (hourPicked * 60 + minPicked));
+//                    intent.putExtra("milliPicked", 60000 * (hourPicked * 60 + minPicked * 30));
+                    int totalMin = (hourPicked * 60 + minPicked * timesMin);
+                    // for the demo purpose
+                    intent.putExtra("milliPicked", 1000 * totalMin);
+                    Log.d("[SETUP_TIMER]", "### minPicked = " + minPicked);
+                    Log.d("[SETUP_TIMER]", "### millipicked = " + 1000 * totalMin);
+
                     startActivity(intent);
                 } else {
                     Toast.makeText(mContext, mContext.getResources().getString(R.string.no_input_timer), Toast.LENGTH_SHORT).show();

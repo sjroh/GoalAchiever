@@ -126,6 +126,11 @@ public class ResultActivity extends AppCompatActivity {
 
             // calculate the coin
             int reward = (maxUnlock - unlockCounter);
+
+            if (reward <= 0) {
+                reward = 1;
+            }
+
             new ScoreHandler(mContext).addCoin(reward);
 
             int strId = new Random().nextInt(strSuccess.size());

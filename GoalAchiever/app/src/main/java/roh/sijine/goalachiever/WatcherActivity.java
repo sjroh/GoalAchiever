@@ -22,7 +22,6 @@ import info.hoang8f.widget.FButton;
 
 public class WatcherActivity extends AppCompatActivity {
 
-    final private int timeInterval = 60000;
     final private int timesMin = 30;
     private WatcherActivity.UnlockedReceiver unlockedReceiver;
     private TextView fullscreenTextview;
@@ -72,7 +71,13 @@ public class WatcherActivity extends AppCompatActivity {
         hourPicked = intent.getIntExtra("hourPicked", 0);
         minPicked = intent.getIntExtra("minPicked", 0);
         totalMin = hourPicked * 60 + minPicked;
+
+        Log.d("[WATCHER]", "### hour picked = " + hourPicked);
+        Log.d("[WATCHER]", "### min picked = " + minPicked);
+        Log.d("[WATCHER]", "### total min = " + totalMin);
+
         maxUnlock = totalMin / 30 + 1;
+
         milliPicked = intent.getIntExtra("milliPicked", 0);
         timeLeft = milliPicked;
 
@@ -116,6 +121,7 @@ public class WatcherActivity extends AppCompatActivity {
             public void onClick(View v) {
                 timerCountDown.cancel();
                 callResultActivity(false, "FROM STOP");
+//                callResultActivity(true, "FROM STOP");
             }
         });
 
@@ -142,6 +148,10 @@ public class WatcherActivity extends AppCompatActivity {
         super.onResume();
         // start timer 30 sec and keep changing value
         maxUnlockTime = 30000;
+
+        // for demo purpose
+        maxUnlockTime = 10000;
+
         maxUnlockTimeLeft = maxUnlockTime;
         timerUnlockTime = new CountDownTimer(maxUnlockTime, 1) {
             @Override
@@ -166,6 +176,7 @@ public class WatcherActivity extends AppCompatActivity {
         };
         timerUnlockTime.start();
         Log.d("[WATCHER_ACTIVITY]", "### onResume timer started");
+//        updateCounter();
     }
 
     @Override
@@ -189,7 +200,11 @@ public class WatcherActivity extends AppCompatActivity {
         Intent intent = new Intent(mContext, ResultActivity.class);
         intent.putExtra("hourPicked", hourPicked);
         intent.putExtra("minPicked", minPicked * timesMin);
-        intent.putExtra("milliPicked", 60000 * (hourPicked * 60 + minPicked));
+//        intent.putExtra("milliPicked", 60000 * (hourPicked * 60 + minPicked));
+
+        // for demo
+        intent.putExtra("milliPicked", 1000 * (hourPicked * 60 + minPicked * 30));
+
         intent.putExtra("STATUS", status);
         intent.putExtra("RESULT", message);
         if (status) {
